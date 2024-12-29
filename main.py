@@ -41,11 +41,11 @@ def nth_root(a: int, n: int) -> int:
 
     while low <= high:
         mid = (low + high) // 2
-        mid_power_exp = pow(mid, n)
+        mid_exp = pow(mid, n)
 
-        if mid_power_exp == a:
+        if mid_exp == a:
             return mid
-        elif mid_power_exp < a:
+        elif mid_exp < a:
             low = mid + 1
         else:
             high = mid - 1
