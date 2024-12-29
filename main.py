@@ -80,7 +80,10 @@ def small_exponent_attack(c_values: list, n_values: list, e: int):
     return M
 
 def main():
-    pass
+    # c_values, n_values, e = TEST_CASE
+    c_values, n_values, e = TASK
+    M = small_exponent_attack(c_values=c_values, n_values=n_values, e=e)
+    print(hex(M))
 
 if __name__ == "__main__":
     main()
