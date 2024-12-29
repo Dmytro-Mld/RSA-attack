@@ -73,6 +73,12 @@ def chinese_remainder_theorem(a_values: list, n_values: list) -> int:
     
     return x % N
 
+def small_exponent_attack(c_values: list, n_values: list, e: int):
+    C = chinese_remainder_theorem(a_values=c_values, n_values=n_values)
+    M = nth_root(a=C, n=e)
+
+    return M
+
 def main():
     pass
 
