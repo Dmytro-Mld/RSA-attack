@@ -83,7 +83,10 @@ def main():
     # c_values, n_values, e = TEST_CASE
     c_values, n_values, e = TASK
     M = small_exponent_attack(c_values=c_values, n_values=n_values, e=e)
-    print(hex(M))
+
+    print(f"Message: {hex(M)}")
+    print()
+    print(f"Decoded message: {hex(M)[(2 + 1 + 2*8 + 2):]}")
 
 if __name__ == "__main__":
     main()
