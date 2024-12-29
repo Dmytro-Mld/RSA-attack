@@ -34,6 +34,28 @@ TASK = (
     5 # E_VALUE
 )
 
+# Use Chinese remainder theorem to find a solution of the system:
+#       x_1 = a_1 (mod n_1)
+#       x_2 = a_2 (mod n_2)
+#       ...
+#       x_k = a_k (mod n_k)
+# in form x mod N, where N = n_1  * n_2 * ... * n_k
+def chinese_remainder_theorem(a_values: list, n_values: list) -> int:
+    k = len(a_values)
+    if len(n_values) != k:
+        raise ValueError("Paramethers must be of the same size.")
+    
+    N = 1
+    for n in n_values:
+        N *= n
+
+    x = 0
+    for a, n in zip(a_values, n_values):
+        M_i = N // n
+        N_i = pow(M_i, -1, n)
+        x += a * M_i * N_i
+    
+    return x % N
 
 def main():
     pass
