@@ -34,6 +34,22 @@ TASK = (
     5 # E_VALUE
 )
 
+# Compute n-th root of a, using binary search
+def nth_root(a: int, n: int) -> int:
+    low = 1
+    high = a
+
+    while low <= high:
+        mid = (low + high) // 2
+        mid_power_exp = pow(mid, n)
+
+        if mid_power_exp == a:
+            return mid
+        elif mid_power_exp < a:
+            low = mid + 1
+        else:
+            high = mid - 1
+
 # Use Chinese remainder theorem to find a solution of the system:
 #       x_1 = a_1 (mod n_1)
 #       x_2 = a_2 (mod n_2)
