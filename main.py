@@ -95,7 +95,7 @@ def meet_in_the_middle(C: list, n: list, e: int) -> int:
         C_s.append(C * pow(i, -1 * e, n))
         for j in X:
             if C_s[i - 1] == j[1]:
-                M = j[1] * pow(i, e, n)
+                M = pow(j[1], -e, n) * pow(i, e, n)
                 return M
 
     return "Open text was not defined"
